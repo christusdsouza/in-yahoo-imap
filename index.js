@@ -23,7 +23,6 @@ bot.on('ready', client => {
     //     })
     // );
     client.user.setStatus('online');
-    bot.user.setStatus('dnd');
     console.log(new Date().toLocaleString());
     console.log(`Loaded with intents: ${Intent.join(" ")}`);
     console.log(`Missing Intents: ${Object.keys(Intents.FLAGS).filter(val => !Intent.includes(val)).join("  ")}`);

@@ -2,6 +2,8 @@ require('dotenv').config();
 const { Client, Intents } = require('discord.js');
 const Imap = require('imap');
 const inspect = require('util').inspect;
+const PORT = process.env.PORT || 3000;
+app.listen(3000, {});
 
 let Intent;
 const urls = {

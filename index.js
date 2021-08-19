@@ -10,7 +10,7 @@ const urls = {
     gmail: 'https://mail.google.com'
 };
 const bot = new Client({ intents: Intent = ["GUILDS", "GUILD_MESSAGES"] });
-
+bot.login(process.env.token);
 bot.on('ready', client => {
     // console.log(client.guilds.cache.every(
     //     guild => {
@@ -23,6 +23,7 @@ bot.on('ready', client => {
     //     })
     // );
     client.user.setStatus('online');
+    bot.user.setStatus('dnd');
     console.log(new Date().toLocaleString());
     console.log(`Loaded with intents: ${Intent.join(" ")}`);
     console.log(`Missing Intents: ${Object.keys(Intents.FLAGS).filter(val => !Intent.includes(val)).join("  ")}`);
@@ -31,8 +32,6 @@ bot.on('ready', client => {
 bot.on('messageCreate', message => {
     if(message.content.startsWith(`\`ping`) || message.mentions.has(bot.user.id)) message.channel.send({content: bot.ws.ping.toString()});
 })
-
-bot.login(process.env.token);
 
 const imap = new Imap({
     user: process.env.user,
